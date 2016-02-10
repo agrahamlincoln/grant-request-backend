@@ -1,0 +1,14 @@
+# exclude sftp-config.json
+# sftp-config.json is for Sublime Text Plugin SFTP
+
+sftp.json
+
+#exclude .env
+.env
+
+# exclude external dependencies. These may be installed using composer and npm
+node_modules/
+vendor/
+
+# exclude temporary/gulp folders
+serve/

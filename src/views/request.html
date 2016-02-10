@@ -1,0 +1,244 @@
+<div style="font: 14px 'Lucidia Grande', Helvetica, Arial, sans-serif; padding:10px;">
+    <h1 style="font-size: 35px; font-weight: bold; line-height: normal;">{{ model.proposal.title }} ({{model.proposal.shortTitle}})</h1>
+
+    <h3 style="font-size:20px; font-weight:bold; line-height: normal; margin-top:1rem;">Principal Investigator</h3> 
+    {% if model.principalInvestigator %}
+      <table cellpadding='0' cellspacing='0' style='border: 0px; line-height: normal;'>
+        <tr>
+          <td style='width: 145px; text-align: right; font-weight:600;padding:0px;'>Full Name</td>
+          <td style='padding: 0px 15px 0px'>{{model.principalInvestigator.name}}</td>
+        </tr>
+        <tr>
+          <td style='width: 145px; text-align: right; font-weight:600;padding:0px;'>Email Address</td>
+          <td style='padding: 0px 15px 0px'>{{model.principalInvestigator.email}}</td>
+        </tr>
+        <tr>
+          <td style='width: 145px; text-align: right; font-weight:600;padding:0px;'>eRA Commons ID</td>
+          <td style='padding: 0px 15px 0px'>{{model.principalInvestigator.fedId}}</td>
+        </tr>
+      </table>
+      <p>Principal Investigator will be <strong>
+      {% if model.principalInvestigator.vacation %} 
+        available 
+      {% else %} 
+        unavailable
+      {% endif %}</strong> within 3 weeks prior to submission.</p>
+    {% endif %}
+
+    <h3 style="font-size:20px; font-weight:bold; line-height: normal;margin-top:1rem;">Sponsor / Funding Opportunity</h3>
+    <table cellpadding="0" cellspacing="0" style="border: 0px; line-height: normal;">
+      <tr>
+        <td style="width: 145px; text-align: right; font-weight:600; padding:0px; ">Funding Opportunity</td>
+        <td style="padding:0px 15px 0px;">
+          {{ model.fundOpportunity.details is not empty ? model.fundOpportunity.details : "[Unspecified]" }}
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 145px; text-align: right; font-weight:600; padding:0px;">Sponsor</td>
+        <td style="padding:0px 15px 0px;"> 
+          {{ model.fundOpportunity.sponsor is not empty ? model.fundOpportunity.sponsor : "[Unspecified]" }}
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 145px; text-align: right; font-weight:600; padding:0px;">Website</td>
+        <td style="padding:0px 15px 0px;">
+          {{ model.fundOpportunity.website is not empty ? model.fundOpportunity.website : "[Unspecified]" }}
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 145px; text-align: right; font-weight:600;padding:0px;">Due Date</td>
+        <td style="padding:0px 15px 0px;">
+          {{ model.fundOpportunity.dueDate is not empty ? model.fundOpportunity.dueDate : "[Unspecified]" }}
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 145px; text-align: right; font-weight:600;padding:0px;">Funding Mechanism</td>
+        <td style="padding:0px 15px 0px;">
+          {{ model.fundOpportunity.fundMech is not empty ? model.fundOpportunity.fundMech : "[Unspecified]" }}
+        </td>
+      </tr>
+    </table>
+
+    <h3 style="font-size:20px; font-weight:bold; line-height: normal;margin-top:1rem;">Proposal Information</h3>
+    <table cellpadding="0" cellspacing="0" style="border: 0px; margin-bottom:0px; line-height: normal;">
+      <tr>
+        <td style="width: 145px; text-align: right; font-weight:600;padding:0px;">Title</td>
+        <td style="padding:0px 15px 0px;">
+          {{ model.proposal.title }}
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 145px; text-align: right; font-weight:600;padding:0px;">Short Title</td>
+        <td style="padding:0px 15px 0px;">
+          {{ model.proposal.shortTitle }}
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 145px; text-align: right; font-weight:600;padding:0px;">Project Dates</td>
+        <td style="padding:0px 15px 0px;">
+          {{ model.proposal.startDate is not empty ? model.proposal.startDate : "[Unspecified]" }} to {{ model.proposal.endDate is not empty ? model.proposal.endDate : "[Unspecified]" }}
+        </td>
+      </tr>
+    </table>
+
+    <h3 style="font-size:20px; font-weight:bold; line-height: normal;margin-top:1rem;">Personnel @ RIH / UEMF</h3>
+    <table cellpadding='0' cellspacing='0' style='border: 0px; line-height: normal;'>
+      {% for person in model.personnel %}
+        <tr>
+          <td style='width: 145px; text-align: right; font-weight:600;padding:0px;'>Full Name</td>
+          <td style='padding: 0px 15px 0px'>
+            {{ person.name is not empty ? person.name :  "[Unspecified]" }}
+          </td>
+        </tr>
+        <tr>
+          <td style='width: 145px; text-align: right; font-weight:600;padding:0px;'>Project Role</td>
+          <td style='padding: 0px 15px 0px'>
+            {{ person.role is not empty ? person.role :  "[Unspecified]" }}
+          </td>
+        </tr>
+        <tr>
+          <td style='width: 145px; text-align: right; font-weight:600;padding:0px;'>Effort</td>
+          <td style='padding: 0px 15px 0px'>
+            {{ person.effort ? person.effort :  "[Unspecified]" }}
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0px;">&nbsp;</td>
+        </tr>
+      {% endfor %}
+    </table>
+
+    <h3 style="max-width: 100%; font-size:20px; font-weight:bold; line-height: normal;margin-top:1rem;">Special Considerations</h3>
+    <table cellpadding="0" cellspacing="0" style="border: 0px; line-height: normal;">
+      <tr>
+        <td style="width: 120px; text-align: right; font-weight:600;padding:0px;">Human Subjects</td>
+        <td style="padding:0px 15px 0px;">
+          {% if model.special.humans %}
+            <span style='font-weight: 800; color: #1B5E20';>YES</span>
+          {% else %}
+            NO
+          {% endif %}
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 120px; text-align: right; font-weight:600;padding:0px;">Clinical Trial</td>
+        <td style="padding:0px 15px 0px;">
+          {% if model.special.clinical %}
+            <span style='font-weight: 800; color: #1B5E20';>YES</span>
+          {% else %}
+            NO
+          {% endif %}</td>
+      </tr>
+      <tr>
+        <td style="width: 120px; text-align: right; font-weight:600;padding:0px;">Phase III Clinical Trial</td>
+        <td style="padding:0px 15px 0px;">
+          {% if model.special.phase3 %}
+            <span style='font-weight: 800; color: #1B5E20';>YES</span>
+          {% else %}
+            NO
+          {% endif %}</td>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 150px; text-align: right; font-weight:600;padding:0px;">Vertebrate Subjects</td>
+        <td style="padding:0px 15px 0px;">
+          {% if model.special.vertebrate %}
+            <span style='font-weight: 800; color: #1B5E20';>YES</span>
+          {% else %}
+            NO
+          {% endif %}</td>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 120px; text-align: right; font-weight:600;padding:0px;">Select Agents</td>
+        <td style="padding:0px 15px 0px;">
+          {% if model.special.agents %}
+            <span style='font-weight: 800; color: #1B5E20';>YES</span>
+          {% else %}
+            NO
+          {% endif %}</td>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 120px; text-align: right; font-weight:600;padding:0px;">Stem Cells</td>
+        <td style="padding:0px 15px 0px;">
+          {% if model.special.stemcells %}
+            <span style='font-weight: 800; color: #1B5E20';>YES</span>
+          {% else %}
+            NO
+          {% endif %}</td>
+        </td>
+      </tr>
+    </table>
+
+    {% if model.consultants|length > 0 %}
+      <h3 style='font-size:20px; font-weight:bold; line-height: normal;margin-top:1rem;'>Consultants</h3>
+      <table cellpadding='0' cellspacing='0' style='border: 0px; line-height: normal;'>
+        {% for consultant in model.consultants %}
+          <tr>
+            <td style='width: 145px; text-align: right; font-weight:600;padding:0px;'>Full Name</td>
+            <td style='padding: 0px 15px 0px'>
+              {{ consultant.name ? consultant.name :  "[Unspecified]" }}
+            </td>
+          </tr>
+          <tr>
+            <td style='width: 145px; text-align: right; font-weight:600;padding:0px;'>Email</td>
+            <td style='padding: 0px 15px 0px'>
+              {{ consultant.email ? consultant.email :  "[Unspecified]" }}
+            </td>
+          </tr>
+          <tr>
+            <td style='width: 145px; text-align: right; font-weight:600;padding:0px;'>Annual Fee</td>
+            <td style='padding: 0px 15px 0px'>
+              {{ consultant.fee ? consultant.fee :  "[Unspecified]" }}
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0px;">&nbsp;</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+
+    {% if model.subawards|length > 0 %}
+      <h3 style='font-size:20px; font-weight:bold; line-height: normal;margin-top:1rem;'>Subawards / Participating Institutions</h3>
+      <table cellpadding='0' cellspacing='0' style='border: 0px; line-height: normal;'>
+        {% for subaward in model.subawards %}
+          <tr>
+            <td colspan='2' style='width:150px; text-align:left; font-weight: 600; font-size:16px;'>
+              {{ subaward.name }}
+            </td>
+          </tr>
+          <tr>
+            <td style='width: 150px; text-align: right; font-weight:600;padding:0px;'>Principal Investigator</td>
+            <td style='padding: 0px 15px 0px'>
+              {{ subaward.principalInvestigator.name ? subaward.principalInvestigator.name :  "[Unspecified]" }} 
+              {% if subaward.principalInvestigator.email %}
+                ({{ subaward.principalInvestigator.email }})
+              {% else %}
+                (Unspecified)
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td style='width: 150px; text-align: right; font-weight:600;padding:0px;'>Grants Administrator</td>
+            <td style='padding: 0px 15px 0px'>
+              {{ subaward.grantAdmin.name ? subaward.grantAdmin.name :  "[Unspecified]" }} 
+              {% if subaward.grantAdmin.email %}
+                ({{ subaward.grantAdmin.email }})
+              {% else %}
+                (Unspecified)
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0px;">&nbsp;</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+
+
+    <h3 style="font-size:20px; font-weight:bold; line-height: normal;margin-top:1rem;">Notes / Comments</h3>
+    {{ model.comments ? model.comments : "No Comments" }}
+  </div>

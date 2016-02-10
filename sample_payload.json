@@ -1,0 +1,78 @@
+{
+  "principalInvestigator": {
+    "email": "TGreene@email.com",
+    "name": "Tairy Greene",
+    "fedId": "1234567890",
+    "vacation": true
+  },
+  "fundOpportunity": {
+    "sponsor": "Greene Sponsor",
+    "details": "Research Opportunities",
+    "website": "https://sponsor.greene.net/",
+    "fundMech": "grant",
+    "dueDate": "10/01/2015"
+  },
+  "proposal": {
+    "title": "Tairy Greene's Medical Analysis",
+    "shortTitle": "TGMED",
+    "startDate": "10/24/2015",
+    "endDate": "10/25/2015"
+  },
+  "personnel": [
+    {
+        "name": "Tairy Greene",
+        "role": "Principal Investigator",
+        "effort": "50"
+    },
+    {
+        "name": "Benny Blue",
+        "role": "Co-Investigator",
+        "effort": "50"
+    }
+  ],
+  "consultants": [
+    {
+        "name": "John Haverty",
+        "email": "j.haverty@email.com",
+        "fee": "10000"
+    },
+    {
+        "name": "Edward Ingrid",
+        "email": "Ingrid93@email.com",
+        "fee": "25000"
+    }
+  ],
+  "subawards": [
+      {
+      "name": "Loon's Hospital",
+      "principalInvestigator": {
+        "name": "John Haverty",
+        "email": "j.haverty@email.com"
+      },
+      "grantAdmin": {
+        "name": "John Haverty",
+        "email": "j.haverty@email.com"
+      }
+    },
+    {
+      "name": "Edward's Research Facility",
+      "principalInvestigator": {
+        "name": "Benny Blue",
+        "email": "blue2222@email.com"
+      },
+      "grantAdmin": {
+        "name": "Edward Ingrid",
+        "email": "Ingrid93@email.com"
+      }
+    }
+  ],
+  "special": {
+    "humans": true,
+    "clinical": false,
+    "phase3": true,
+    "vertebrate": false,
+    "agents": true,
+    "stemcells": false
+  },
+  "comments": "This is a sample request. The contents of this request are fake and do not represent an actual funding request."
+}

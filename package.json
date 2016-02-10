@@ -1,0 +1,14 @@
+{
+  "name": "forms-api",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "del": "^2.2.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-cli": "github:gulpjs/gulp-cli#4.0",
+    "gulp-connect-php": "0.0.5",
+    "gulp-load-plugins": "^1.0.0",
+    "main-bower-files": "^2.9.0"
+  }
+}
